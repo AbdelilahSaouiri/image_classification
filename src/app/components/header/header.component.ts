@@ -41,6 +41,7 @@ export class HeaderComponent {
         next:(data:any)=>{
           this.imageService.getClasses(data.image_urls)
           Swal.close();
+          this.router.navigateByUrl('/products')
         },error:err=>{
           Swal.close()
           Swal.fire({
