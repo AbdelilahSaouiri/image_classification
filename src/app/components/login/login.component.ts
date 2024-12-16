@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit{
       next:(response:HttpResponse<any>)=>{
         
         if(response.status==200){
-          if(response.body.role===0){
+          if(response.body.role.includes("ADMIN")){
             this.router.navigateByUrl("/admin")
           }
           this.authService.profile(response.body)

@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   
-   name!:string
+   name!:any
    roles:any 
+   public islogged:boolean=false
 
   constructor(private http:HttpClient) { }
 
@@ -19,7 +20,17 @@ export class AuthService {
 
   profile(data:any){
       this.name=data.name
-      this.roles=data.role
+      this.islogged=true
       localStorage.setItem("name",this.name)
+      localStorage.setItem("roles",data.role)
+  }
+
+
+  loadProfile(){
+    this.name=localStorage.getItem("name")?.split("@")[0]
+    if(this.name){
+      this.islogged=true
+    }
+    this.roles=localStorage.getItem("roles")
   }
 }

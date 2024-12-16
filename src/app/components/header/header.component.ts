@@ -28,6 +28,11 @@ export class HeaderComponent {
       this.islogged=!this.islogged
     }
   }
+
+
+  profile(){
+    this.router.navigateByUrl("/admin")
+  }
   
   onFileSelect(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -72,6 +77,7 @@ export class HeaderComponent {
 
   logout(){
     localStorage.removeItem("name")
+    localStorage.removeItem("roles")
     this.islogged=false
     this.name=""
   }
