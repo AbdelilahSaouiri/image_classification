@@ -33,8 +33,9 @@ export class LoginComponent implements OnInit{
     console.log(this.formGroup.value)
     this.authService.login(this.formGroup.value).subscribe({
       next:(response:HttpResponse<any>)=>{
+        const name=response.body.name;
         if(response.status==200){
-          this.router.navigateByUrl("/admin")
+          this.router.navigate(['/admin'],{state:{name:name}}) 
         }
       },error:err=>{
         Swal.fire({

@@ -1,26 +1,29 @@
-<div class=" bg">
-    <div class="container">
-        <div>
-            <i class="fs-4 bi bi-house-fill"></i>
-            <h5  
-            class="text-white d-inline"
-            role="button"
-            routerLink="/home">
-                Home Page
-            </h5>
-        </div>
+<div class="bg">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <i class="fs-4 bi bi-house-fill"></i>
+        <h5 class="text-white d-inline" role="button" routerLink="/home">
+          Home Page
+        </h5>
+      </div>
+      <div>
+        <i class="fs-4 bi bi-person-fill"></i>
+        {{name}}
+      </div>
+    </div>
         <div class="upload-container">
             <ngx-file-drop 
               [accept]="'image/*'" 
               (onFileDrop)="dropped($event)" 
               (onFileOver)="fileOver($event)" 
               (onFileLeave)="fileLeave($event)">
-              <div class="file-drop-zone" >
+              <div class="file-drop-zone " >
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                  <div class="drop-content">
+                  <div class="drop-content mt-3">
                     <i class="fas fa-cloud-upload-alt"></i>
-                    <h2 class="text-white">Déposez vos fichiers ici</h2>
-                    <p class="text-white">Formats acceptés : images</p>
+                    <h2 class="text-white mb-2">Déposez vos fichiers ici</h2>
+                    <p class="text-white mt-3">Formats acceptés : images</p>
                     <button
                     type="button" class="btn mt-4" (click)="openFileSelector()">Sélectionner un fichier</button>
                   </div>
@@ -37,7 +40,16 @@
                 </li>
               </ul>
             </div>
+            <div class="mt-4"
+            (click)="changeClick()">
+              <button
+              [disabled]="!isDisabled"
+              type="button"
+               class="btn btn-primary mt-4 text-white" 
+               >Enregistrer</button>
+            </div>
           </div>
+         
     </div>
 
 </div>

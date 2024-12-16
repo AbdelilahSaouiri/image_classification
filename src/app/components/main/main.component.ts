@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
 
     this.imageService.imageUrls$.subscribe((urls: string[]) => {
+      console.log(this.images)
       this.images = urls;  
     });
   }

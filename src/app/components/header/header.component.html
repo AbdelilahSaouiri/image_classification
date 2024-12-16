@@ -39,11 +39,14 @@
                            data-bs-toggle="dropdown" 
                            aria-expanded="false"
                            >
-                              <i class="fa fa-user">username</i>
+                              <i class="fa fa-user"></i>
+                              {{name}}
                           </a>                          
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                          <li
+                          (click)="logout()"
+                          ><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
                           </ul>
                          
                       </li>

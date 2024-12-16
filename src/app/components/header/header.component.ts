@@ -12,7 +12,8 @@ export class HeaderComponent {
 
     selectedFile: File | null = null;
     islogged:boolean=false;
-
+    name!:string
+  
     public categories:any[]=[
       {name:'Home'},
       {name:'All Categories'},
@@ -20,7 +21,13 @@ export class HeaderComponent {
       {name:'Accessories'},
     ]
   
-  constructor(private imageService:ImageService,private router:Router){}
+  constructor(private imageService:ImageService,private router:Router){
+    const nom=localStorage.getItem("name") || null
+    if(nom){
+      this.name=nom
+      this.islogged=!this.islogged
+    }
+  }
   
   onFileSelect(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -61,5 +68,11 @@ export class HeaderComponent {
         }
       });
   }
+  }
+
+  logout(){
+    localStorage.removeItem("name")
+    this.islogged=false
+    this.name=""
   }
 }
