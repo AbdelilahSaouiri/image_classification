@@ -22,7 +22,6 @@ export class HeroComponent implements OnInit{
   getAllImages(){
     this.imageService.getImages().subscribe({
       next:data=>{
-        console.log(data.results)
         this.images=data.results
       },error:err=>{
         console.log(err)

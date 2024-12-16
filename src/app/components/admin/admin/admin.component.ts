@@ -16,15 +16,10 @@ export class AdminComponent {
   isImage:boolean=false
   isClicked:boolean=false
   isDisabled:boolean=false
-  name:string="unkown"
+  name!:any
 
   constructor(private router:Router,private imageService:ImageService) { 
-    const navigation=this.router.getCurrentNavigation()
-    if (navigation?.extras.state) {
-      const name= navigation.extras.state['name'];
-      this.name=name.split("@")[0];  
-      localStorage.setItem("name",this.name)
-    }
+     this.name=localStorage.getItem("name")?.split("@")[0]||null
   }
 
   public dropped(files: NgxFileDropEntry[]) {

@@ -6,6 +6,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin/admin.component';
 
+
 const routes: Routes = [
   {path:'home',component:HeroComponent},
   {path:'products',component:MainComponent},

@@ -24,7 +24,7 @@ export class HeaderComponent {
   constructor(private imageService:ImageService,private router:Router){
     const nom=localStorage.getItem("name") || null
     if(nom){
-      this.name=nom
+      this.name=nom.split("@")[0]
       this.islogged=!this.islogged
     }
   }
