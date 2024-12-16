@@ -36,9 +36,6 @@ export class AdminComponent {
           if (file.type.startsWith('image/')) {
             this.isImage = true;
             this.isDisabled=true
-            if (this.isClicked) {  
-              this.uploadImage(file);  
-            }
           } else {
             Swal.fire({
               timer: 1500,
@@ -53,7 +50,7 @@ export class AdminComponent {
   }
   
   changeClick() {
-    this.isClicked = !this.isClicked;
+    this.isClicked = true;
     if (this.isClicked && this.files.length > 0 && this.isImage) {
       const file = this.files[0].fileEntry as FileSystemFileEntry;
       file.file((f: File) => {
