@@ -1,0 +1,138 @@
+
+.bg {
+  background: url('/assets/images/1.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  color: white;
+
+}
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start; /* Assure que tout reste aligné verticalement */
+  min-height: 80vh;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+  gap: 30px; /* Ajoute de l'espacement entre les enfants */
+}
+
+.file-drop-zone {
+  width: 100%;
+  max-width: 600px;
+  padding: 50px;
+  border: 2px dashed #6c63ff;
+  border-radius: 16px;
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.file-list {
+  margin-top: 20px; /* Ajoute de l'espace au-dessus de la liste des fichiers */
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.file-drop-zone:hover {
+  background-color: #f0f5ff;
+  border-color: #5548ff;
+  transform: scale(1.02);
+}
+
+.drop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.drop-content i {
+  font-size: 60px;
+  color: #6c63ff;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.drop-content h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.drop-content p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #777;
+}
+
+.drop-content .btn {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(to right, #6c63ff, #5548ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(108, 99, 255, 0.3);
+}
+
+.drop-content .btn:hover {
+  background: linear-gradient(to right, #5548ff, #6c63ff);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+}
+
+
+
+.file-list h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.file-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.file-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #555;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.file-list li i {
+  font-size: 20px;
+  color: #6c63ff;
+}
+
+.file-list li:last-child {
+  border-bottom: none;
+}

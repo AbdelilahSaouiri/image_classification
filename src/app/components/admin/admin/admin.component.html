@@ -1,0 +1,43 @@
+<div class=" bg">
+    <div class="container">
+        <div>
+            <i class="fs-4 bi bi-house-fill"></i>
+            <h5  
+            class="text-white d-inline"
+            role="button"
+            routerLink="/home">
+                Home Page
+            </h5>
+        </div>
+        <div class="upload-container">
+            <ngx-file-drop 
+              [accept]="'image/*'" 
+              (onFileDrop)="dropped($event)" 
+              (onFileOver)="fileOver($event)" 
+              (onFileLeave)="fileLeave($event)">
+              <div class="file-drop-zone" >
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                  <div class="drop-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h2 class="text-white">Déposez vos fichiers ici</h2>
+                    <p class="text-white">Formats acceptés : images</p>
+                    <button
+                    type="button" class="btn mt-4" (click)="openFileSelector()">Sélectionner un fichier</button>
+                  </div>
+                </ng-template>
+              </div>
+            </ngx-file-drop>
+          
+            <div *ngIf="files && files.length > 0 && isImage" class="file-list mt-5  p-3 bg-dark text-white ">
+              <h3 class="text-white">Fichiers sélectionnés :</h3>
+              <ul>
+                <li *ngFor="let item of files; let i = index">
+                  <i class="text-white fs-4 bi bi-folder"></i>
+                  <span class="text-white fs-4">{{ item.relativePath }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+
+</div>

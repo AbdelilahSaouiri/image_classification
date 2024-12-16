@@ -25,6 +25,10 @@ export class ImageService {
   uploadImage(formData: FormData): Observable<any> {
     return this.http.post<any>(`${environment.backurl}/upload/`, formData);
   }
+   
+  uploadImageByAdmin(formData:FormData):Observable<any>{
+    return this.http.post<any>(`${environment.backurl}/admin/upload`,formData);
+  }
 
   getImages(page: number = 1): Observable<any> {
     const params = new HttpParams().set('page', page.toString());

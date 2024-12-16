@@ -1,0 +1,16 @@
+.bg {
+    background: url('/assets/images/1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+
+}
+
+*{
+    color: white;
+}

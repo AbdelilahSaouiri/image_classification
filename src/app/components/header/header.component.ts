@@ -3,7 +3,6 @@ import { ImageService } from '../../services/image.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,6 +11,14 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
 
     selectedFile: File | null = null;
+    islogged:boolean=false;
+
+    public categories:any[]=[
+      {name:'Home'},
+      {name:'All Categories'},
+      {name:'Electronics'},
+      {name:'Accessories'},
+    ]
   
   constructor(private imageService:ImageService,private router:Router){}
   
@@ -41,13 +48,14 @@ export class HeaderComponent {
         next:(data:any)=>{
           this.imageService.getClasses(data.image_urls)
           Swal.close();
-          this.router.navigateByUrl('/products')
+          this.router.navigateByUrl("/products")
         },error:err=>{
+          console.log(err)
           Swal.close()
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: `Something wrong, please try later ❌!`,
+            text: `${err.error.message}`,
             showConfirmButton:false
           });
         }
